@@ -32,6 +32,7 @@ const ChatBox = () => {
       querySnapshot.forEach((doc) => {
         messages.push({
           ...doc.data(),
+          createdAt: doc.data().createdAt.toDate(),
           id: doc.id,
         });
       });
