@@ -1,4 +1,5 @@
 import { useAuth } from "../hooks/useAuth";
+import user from "../assets/images/user.jpg";
 
 const Message = ({ message }) => {
   const { currentUser } = useAuth();
@@ -13,7 +14,7 @@ const Message = ({ message }) => {
           <div className="w-10 rounded-full">
             <img
               className="object-contain"
-              src={message.avatar}
+              src={message.avatar || user}
               alt={message.name}
             />
           </div>
@@ -21,7 +22,7 @@ const Message = ({ message }) => {
         <div className="chat-header flex items-center gap-x-2">
           <span>{message.name}</span>
           <time className="text-xs opacity-50">
-            {message.createdAt?.toDate().toLocaleTimeString("en-US")}
+            {message.createdAt.toLocaleTimeString("en-US")}
           </time>
         </div>
 
